@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#018786">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="theme-color" content="#6750A4">
     <meta name="description" content="Endroid Calculator — Simple, fast, beautiful. Works offline.">
     <meta name="keywords" content="calculator, endroid, pwa, offline, math">
     <meta name="author" content="wized1">
@@ -39,28 +39,109 @@
 
     <title>Endroid Calculator</title>
 
-    <!-- Material Symbols -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <!-- Material Symbols Outlined (Material You 3) -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24..48,100..700,0..1,-25..200&display=swap" />
+    
+    <!-- Material You 3 Font: Roboto Flex -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..900&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --color-primary: #00897B;
-            --color-on-primary: #ffffff;
-            --color-surface: #F0F5F2;
-            --color-background: #E8EBE9;
-            --color-button-surface: #E0EBE8;
-            --color-on-surface: #1E2021;
-            --color-on-surface-subtle: #6D7873;
+            /* Material You 3 Color Tokens - Light Theme */
+            --md-sys-color-primary: #6750A4;
+            --md-sys-color-on-primary: #FFFFFF;
+            --md-sys-color-primary-container: #E9DDFF;
+            --md-sys-color-on-primary-container: #22005D;
+            --md-sys-color-secondary: #625B71;
+            --md-sys-color-on-secondary: #FFFFFF;
+            --md-sys-color-secondary-container: #E8DEF8;
+            --md-sys-color-on-secondary-container: #1E192B;
+            --md-sys-color-tertiary: #7D5260;
+            --md-sys-color-on-tertiary: #FFFFFF;
+            --md-sys-color-tertiary-container: #FFD8E4;
+            --md-sys-color-on-tertiary-container: #31111D;
+            --md-sys-color-surface: #FEF7FF;
+            --md-sys-color-surface-dim: #DED8E1;
+            --md-sys-color-surface-bright: #FEF7FF;
+            --md-sys-color-surface-container-lowest: #FFFFFF;
+            --md-sys-color-surface-container-low: #F7F2FA;
+            --md-sys-color-surface-container: #F3EDF7;
+            --md-sys-color-surface-container-high: #ECE6F0;
+            --md-sys-color-surface-container-highest: #E6E0E9;
+            --md-sys-color-on-surface: #1C1B1F;
+            --md-sys-color-on-surface-variant: #49454F;
+            --md-sys-color-outline: #79747E;
+            --md-sys-color-outline-variant: #CAC4D0;
+            --md-sys-color-shadow: #000000;
+            --md-sys-color-scrim: #000000;
+            --md-sys-color-inverse-surface: #313033;
+            --md-sys-color-inverse-on-surface: #F4EFF4;
+            --md-sys-color-inverse-primary: #CFBCFF;
+            --md-sys-color-surface-tint: #6750A4;
+            
+            /* Elevation shadows */
+            --md-elevation-1: 0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.30);
+            --md-elevation-2: 0px 2px 6px 2px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.30);
+            --md-elevation-3: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px 0px rgba(0, 0, 0, 0.30);
+            --md-elevation-4: 0px 6px 10px 4px rgba(0, 0, 0, 0.15), 0px 2px 3px 0px rgba(0, 0, 0, 0.30);
+            --md-elevation-5: 0px 8px 12px 6px rgba(0, 0, 0, 0.15), 0px 4px 4px 0px rgba(0, 0, 0, 0.30);
+            
+            /* Shape tokens */
+            --md-sys-shape-corner-extra-small: 4px;
+            --md-sys-shape-corner-small: 8px;
+            --md-sys-shape-corner-medium: 12px;
+            --md-sys-shape-corner-large: 16px;
+            --md-sys-shape-corner-extra-large: 28px;
+            --md-sys-shape-corner-full: 9999px;
+            
+            /* Motion */
+            --motion-easing-emphasized: cubic-bezier(0.2, 0, 0, 1);
+            --motion-duration-medium: 300ms;
+            
+            /* Responsive sizes - SIMPLIFIED for stability */
+            --calculator-padding: 20px;
+            --gap-size: 12px;
         }
 
         .dark-theme {
-            --color-primary: #4DB6AC;
-            --color-on-primary: #000000;
-            --color-surface: #1E2021;
-            --color-background: #121212;
-            --color-button-surface: #2E3133;
-            --color-on-surface: #E0EBE8;
-            --color-on-surface-subtle: #96A39D;
+            /* Material You 3 Color Tokens - Dark Theme */
+            --md-sys-color-primary: #CFBCFF;
+            --md-sys-color-on-primary: #381E72;
+            --md-sys-color-primary-container: #4F378B;
+            --md-sys-color-on-primary-container: #E9DDFF;
+            --md-sys-color-secondary: #CCC2DC;
+            --md-sys-color-on-secondary: #332D41;
+            --md-sys-color-secondary-container: #4A4458;
+            --md-sys-color-on-secondary-container: #E8DEF8;
+            --md-sys-color-tertiary: #EFB8C8;
+            --md-sys-color-on-tertiary: #492532;
+            --md-sys-color-tertiary-container: #633B48;
+            --md-sys-color-on-tertiary-container: #FFD8E4;
+            --md-sys-color-surface: #141218;
+            --md-sys-color-surface-dim: #141218;
+            --md-sys-color-surface-bright: #3B383E;
+            --md-sys-color-surface-container-lowest: #0F0D13;
+            --md-sys-color-surface-container-low: #1D1B20;
+            --md-sys-color-surface-container: #211F26;
+            --md-sys-color-surface-container-high: #2B2930;
+            --md-sys-color-surface-container-highest: #36343B;
+            --md-sys-color-on-surface: #E6E1E5;
+            --md-sys-color-on-surface-variant: #CAC4D0;
+            --md-sys-color-outline: #938F99;
+            --md-sys-color-outline-variant: #49454F;
+            --md-sys-color-shadow: #000000;
+            --md-sys-color-scrim: #000000;
+            --md-sys-color-inverse-surface: #E6E1E5;
+            --md-sys-color-inverse-on-surface: #313033;
+            --md-sys-color-inverse-primary: #6750A4;
+            --md-sys-color-surface-tint: #CFBCFF;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
         }
 
         body {
@@ -68,121 +149,396 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            min-height: -webkit-fill-available;
             margin: 0;
-            background-color: var(--color-background);
-            font-family: 'Google Sans', 'Helvetica Neue', Arial, sans-serif;
-            transition: background-color 0.3s;
+            padding: 16px;
+            background-color: var(--md-sys-color-surface-dim);
+            font-family: 'Roboto Flex', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            transition: all var(--motion-duration-medium) var(--motion-easing-emphasized);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+            touch-action: manipulation;
+        }
+
+        @supports (height: 100dvh) {
+            body {
+                min-height: 100dvh;
+            }
         }
 
         .calculator {
-            width: 320px;
-            background-color: var(--color-surface);
-            border-radius: 28px;
-            padding: 24px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
-            transition: background-color 0.3s, box-shadow 0.3s;
+            width: min(360px, 95vw);
+            min-width: 280px;
+            background: linear-gradient(135deg, 
+                var(--md-sys-color-surface-container-highest) 0%, 
+                var(--md-sys-color-surface-container) 100%);
+            border-radius: var(--md-sys-shape-corner-extra-large);
+            padding: var(--calculator-padding);
+            box-shadow: var(--md-elevation-5);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--md-sys-color-outline-variant);
+            transition: all var(--motion-duration-medium) var(--motion-easing-emphasized);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .calculator::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                var(--md-sys-color-primary-container), 
+                transparent);
         }
 
         .display-container {
             text-align: right;
-            margin-bottom: 25px;
-            padding: 10px 10px 10px 0;
-            height: 90px;
+            margin-bottom: 24px;
+            padding: 16px;
+            min-height: 100px;
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
             overflow: hidden;
+            background-color: var(--md-sys-color-surface-container-lowest);
+            border-radius: var(--md-sys-shape-corner-large);
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--md-sys-color-outline-variant);
+            position: relative;
+        }
+
+        .display-container::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                var(--md-sys-color-outline), 
+                transparent);
         }
 
         #previous-operand {
-            font-size: 1.3em;
-            color: var(--color-on-surface-subtle);
-            height: 25px;
+            font-size: 16px;
+            color: var(--md-sys-color-on-surface-variant);
+            height: 20px;
             white-space: nowrap;
             overflow: hidden;
-            font-weight: 500;
+            text-overflow: ellipsis;
+            font-weight: 400;
+            letter-spacing: 0.15px;
+            opacity: 0.8;
+            line-height: 1.2;
+            margin-bottom: 4px;
         }
 
         #current-operand {
-            font-size: 5em;
-            color: var(--color-on-surface);
+            font-size: clamp(32px, 8vw, 56px);
+            color: var(--md-sys-color-on-surface);
             font-weight: 300;
-            height: 60px;
             line-height: 1;
+            font-variation-settings: 'wght' 300;
+            letter-spacing: -0.25px;
+            transition: all 0.1s var(--motion-easing-emphasized);
+            word-break: break-all;
+            overflow-wrap: break-word;
+            min-height: 48px;
         }
 
         .buttons-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 14px;
+            gap: var(--gap-size);
+            width: 100%;
         }
 
         .btn {
-            width: 65px;
-            height: 65px;
+            aspect-ratio: 1/1;
+            width: 100%;
+            max-width: 72px;
+            justify-self: center;
             border: none;
-            border-radius: 50%;
-            font-size: 1.6em;
+            border-radius: var(--md-sys-shape-corner-full);
+            font-size: 20px;
             cursor: pointer;
             display: flex;
             justify-content: center;
             align-items: center;
-            transition: all 0.15s ease-in-out;
+            transition: all 0.2s var(--motion-easing-emphasized);
             user-select: none;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-            font-family: inherit;
+            position: relative;
+            overflow: hidden;
+            background: transparent;
+            font-family: 'Roboto Flex', system-ui, sans-serif;
+            font-variation-settings: 'wght' 500;
+            touch-action: manipulation;
+            padding: 0;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: currentColor;
+            opacity: 0;
+            transition: opacity 0.2s var(--motion-easing-emphasized);
+            border-radius: var(--md-sys-shape-corner-full);
+        }
+
+        .btn:hover::before,
+        .btn:focus::before {
+            opacity: 0.08;
+        }
+
+        .btn:active::before {
+            opacity: 0.16;
         }
 
         .material-symbols-rounded {
             font-family: 'Material Symbols Rounded', sans-serif !important;
-            font-variation-settings: 'wght' 500, 'FILL' 0, 'opsz' 48;
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+            transition: all 0.2s var(--motion-easing-emphasized);
+            font-size: inherit;
         }
 
         .btn-default {
-            background-color: var(--color-button-surface);
-            color: var(--color-on-surface);
-            font-weight: 500;
+            background-color: var(--md-sys-color-surface-container-high);
+            color: var(--md-sys-color-on-surface);
+            font-weight: 400;
+            box-shadow: var(--md-elevation-1);
         }
 
-        .btn-default:active, .btn-operator:active {
-            background-color: var(--color-primary);
-            color: var(--color-on-primary);
+        .btn-default:active {
+            background-color: var(--md-sys-color-surface-container-highest);
             transform: scale(0.95);
+            box-shadow: var(--md-elevation-1);
         }
 
         .btn-operator, .btn-theme-switch {
-            background-color: var(--color-button-surface);
-            color: var(--color-on-surface-subtle);
-            font-size: 1.8em;
-            font-weight: 400;
+            background-color: var(--md-sys-color-secondary-container);
+            color: var(--md-sys-color-on-secondary-container);
+            font-weight: 500;
+            box-shadow: var(--md-elevation-1);
+        }
+
+        .btn-operator:active, .btn-theme-switch:active {
+            background-color: var(--md-sys-color-secondary);
+            color: var(--md-sys-color-on-secondary);
+            transform: scale(0.95);
+            box-shadow: var(--md-elevation-1);
         }
 
         .btn-operator .material-symbols-rounded,
         .btn-theme-switch .material-symbols-rounded {
-            font-size: 32px;
-            font-variation-settings: 'wght' 400;
+            font-size: 24px;
+            font-variation-settings: 'FILL' 0, 'wght' 400;
         }
 
-        .divide-symbol { font-size: 1.8em; }
+        .divide-symbol { 
+            font-size: 24px;
+            font-weight: 300;
+        }
 
         .btn-blue-equals {
-            background-color: var(--color-primary);
-            color: var(--color-on-primary);
-            font-size: 2.2em;
+            background: linear-gradient(135deg, 
+                var(--md-sys-color-primary), 
+                var(--md-sys-color-primary-container));
+            color: var(--md-sys-color-on-primary);
             font-weight: 600;
-        }
-
-        .btn-blue-equals .material-symbols-rounded {
-            font-size: 40px;
-            font-variation-settings: 'FILL' 1;
+            box-shadow: var(--md-elevation-2);
+            position: relative;
         }
 
         .btn-blue-equals:active {
-            background-color: #006056;
             transform: scale(0.95);
+            box-shadow: var(--md-elevation-1);
         }
 
-        .percent-symbol { font-size: 1.3em; }
+        .btn-blue-equals .material-symbols-rounded {
+            font-size: 28px;
+            font-variation-settings: 'FILL' 1, 'wght' 400;
+        }
+
+        .percent-symbol { 
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        /* Pressed state animation */
+        .btn:active {
+            transition: transform 0.1s var(--motion-easing-emphasized);
+        }
+
+        /* Ripple effect */
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 5px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.5);
+            opacity: 0;
+            border-radius: 100%;
+            transform: scale(1, 1) translate(-50%);
+            transform-origin: 50% 50%;
+        }
+
+        .btn:focus:not(:active)::after {
+            animation: ripple 1s var(--motion-easing-emphasized);
+        }
+
+        @keyframes ripple {
+            0% {
+                transform: scale(0, 0);
+                opacity: 0.5;
+            }
+            100% {
+                transform: scale(20, 20);
+                opacity: 0;
+            }
+        }
+
+        /* Theme transition */
+        * {
+            transition: background-color var(--motion-duration-medium) var(--motion-easing-emphasized),
+                        color var(--motion-duration-medium) var(--motion-easing-emphasized),
+                        border-color var(--motion-duration-medium) var(--motion-easing-emphasized),
+                        box-shadow var(--motion-duration-medium) var(--motion-easing-emphasized);
+        }
+
+        /* Small screen optimizations */
+        @media (max-width: 320px) {
+            :root {
+                --calculator-padding: 12px;
+                --gap-size: 8px;
+            }
+            
+            .calculator {
+                border-radius: 20px;
+            }
+            
+            .display-container {
+                padding: 12px;
+                min-height: 80px;
+            }
+            
+            #current-operand {
+                font-size: 28px;
+                min-height: 40px;
+            }
+            
+            #previous-operand {
+                font-size: 14px;
+                height: 18px;
+            }
+            
+            .btn {
+                font-size: 18px;
+            }
+            
+            .btn-operator .material-symbols-rounded,
+            .btn-theme-switch .material-symbols-rounded {
+                font-size: 20px;
+            }
+            
+            .divide-symbol { 
+                font-size: 20px;
+            }
+            
+            .btn-blue-equals .material-symbols-rounded {
+                font-size: 24px;
+            }
+        }
+
+        @media (max-height: 500px) and (orientation: landscape) {
+            body {
+                padding: 8px;
+            }
+            
+            .calculator {
+                max-width: 90vw;
+                padding: 12px;
+            }
+            
+            .display-container {
+                height: 60px;
+                margin-bottom: 12px;
+            }
+            
+            #current-operand {
+                font-size: 28px;
+                min-height: 32px;
+            }
+            
+            #previous-operand {
+                font-size: 12px;
+                height: 16px;
+            }
+        }
+
+        /* For very small screens - ensure buttons fit */
+        @media (max-width: 280px) {
+            .buttons-grid {
+                gap: 6px;
+            }
+            
+            .btn {
+                font-size: 16px;
+            }
+            
+            .btn-operator .material-symbols-rounded,
+            .btn-theme-switch .material-symbols-rounded {
+                font-size: 18px;
+            }
+            
+            .divide-symbol { 
+                font-size: 18px;
+            }
+        }
+
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            .calculator {
+                border: 2px solid var(--md-sys-color-on-surface);
+            }
+            
+            .btn {
+                border: 1px solid var(--md-sys-color-outline);
+            }
+        }
+
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                transition: none !important;
+                animation: none !important;
+            }
+            
+            .btn:active {
+                transform: scale(0.95);
+            }
+        }
+
+        /* Safe area insets for notches */
+        @supports (padding: max(0px)) {
+            body {
+                padding-left: max(16px, env(safe-area-inset-left));
+                padding-right: max(16px, env(safe-area-inset-right));
+                padding-top: max(16px, env(safe-area-inset-top));
+                padding-bottom: max(16px, env(safe-area-inset-bottom));
+            }
+        }
     </style>
 </head>
 <body class="light-theme">
@@ -367,6 +723,19 @@
             calculator.chooseOperation(op)
         }
     })
+
+    // Prevent zoom on double tap
+    let lastTouchEnd = 0;
+    document.addEventListener('touchend', function (event) {
+        const now = (new Date()).getTime();
+        if (now - lastTouchEnd <= 300) {
+            event.preventDefault();
+        }
+        lastTouchEnd = now;
+    }, false);
+
+    // Force focus management for small screens
+    document.addEventListener('touchstart', function() {}, {passive: true});
 </script>
 
 <!-- ✔ ONLY addition: service worker registration -->
@@ -380,4 +749,4 @@ if ("serviceWorker" in navigator) {
 </script>
 
 </body>
-        </html>
+</html>
