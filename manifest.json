@@ -4,7 +4,7 @@
   "start_url": "/Calculator/",
   "display": "standalone",
   "background_color": "#E8EBE9",
-  "theme_color": "#018786",
+  "theme_color": "#00691B",
   "icons": [
     {
       "src": "/Calculator/icon.svg",
